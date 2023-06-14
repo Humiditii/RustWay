@@ -5,6 +5,18 @@ struct User {
         email: String,
         is_active: bool
     }
+
+struct Rectangle {
+    weifth:i32,
+    length: i32
+}
+
+impl Rectangle {
+    fn area(&self) -> i32 {
+        return self.weifth * self.length;
+    }
+}
+
 struct Colour (i32, i32, i32);
 struct Point (f32, f32, f32);
 fn main() {
@@ -26,6 +38,13 @@ fn main() {
 
     let _black: Colour = Colour(0,0,0);
     let _exfil_location: Point = Point(0.0, 10.4, 29.4);
+
+    let rectangle = Rectangle {
+        weifth: 20,
+        length: 41
+    };
+
+    println!("{}",rectangle.area())
 }
 
 
@@ -33,8 +52,8 @@ fn user_builder(fullname: String, email:String, age:u16) -> User {
 
     let fullname_as_bytes: &[u8] = fullname.as_bytes(); 
 
-    let mut first_name = String::from("");
-    let mut last_name =  String::from("");
+    let mut first_name: String = String::from("");
+    let mut last_name: String =  String::from("");
 
     first_name.push_str(&fullname);
     last_name.push_str(&fullname);
