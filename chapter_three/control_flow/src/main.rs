@@ -16,7 +16,7 @@ fn main() {
     println!("paid status: {paid}");
 
     let m_a:i32 = do_something();
-    
+
     println!("the function ran and returned this: {m_a}");
 }
 
@@ -31,7 +31,7 @@ fn do_something() -> i32 {
 
             println!("we will try to decrease the age: {age}");
 
-            age = age - 1;
+            age -= 1;
         }
 
         if age == 0 {

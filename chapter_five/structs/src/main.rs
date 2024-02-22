@@ -44,7 +44,25 @@ fn main() {
         length: 41
     };
 
-    println!("{}",rectangle.area())
+    println!("{}",rectangle.area());
+
+    #[derive(Debug)]
+    struct Hameed {
+        married: bool,
+        age: i32,
+        fiance_name: String
+    }
+
+    let mut hameed_instance = Hameed {
+        married: false,
+        age: 24,
+        fiance_name: "sofiyyah".to_string()
+    };
+
+    println!("hameed prop is: {:?}",hameed_instance )
+
+
+
 }
 
 
@@ -78,4 +96,35 @@ fn user_builder(fullname: String, email:String, age:u16) -> User {
         age, 
         is_active: true
     };
+}
+
+struct  Dimension {
+    length:i32,
+    breadth:i32,
+    unit:String,
+}
+
+fn rectangle_dimension(area:i32, perimeter:i32) -> Dimension {
+
+    let breadth = get_the_breadth(area, perimeter);
+
+    Dimension {
+        breadth: breadth,
+        length: get_length(area, breadth),
+        unit: "cm".to_string()
+
+    }
+}
+
+
+fn get_the_breadth(area:i32, perimeter:i32) -> i32 {
+    area / ( (area*perimeter) -1 )
+}
+
+fn get_length(area:i32, breadth:i32) -> i32 {
+     if area < 1 {
+        return 1;
+    }else{
+        return area/breadth
+    }
 }
